@@ -25,9 +25,10 @@ CORS(app)
 # ────────────────────────
 # Koneksi ke MongoDB
 # ────────────────────────
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient("mongodb+srv://ferdid047:085778612820Iu%2A@cluster0.bk8p5rr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["pembukuan_db"]
 col = db["pembukuan"]
+
 
 # ────────────────────────
 # Simpan Pembukuan Baru
