@@ -1,0 +1,79 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Dokumentasi API Pembukuan",
+    "version": "1.0.0"
+  },
+  "basePath": "/api",
+  "paths": {
+    "/pembukuan": {
+      "post": {
+        "summary": "Simpan Pembukuan Baru",
+        "consumes": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "saldo": {"type": "object"},
+              "penghutang": {"type": "array", "items": {"type": "string"}},
+              "totalHariIni": {"type": "number"},
+              "saldoKemarin": {"type": "number"},
+              "selisih": {"type": "number"}
+            }
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "Data berhasil disimpan"
+          }
+        }
+      }
+    },
+    "/riwayat": {
+      "get": {
+        "summary": "Ambil Semua Riwayat Pembukuan",
+        "responses": {
+          "200": {
+            "description": "Daftar riwayat pembukuan"
+          }
+        }
+      }
+    },
+    "/pembukuan/{id}": {
+      "put": {
+        "summary": "Update Pembukuan berdasarkan ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "saldo": {"type": "object"},
+                "penghutang": {"type": "array", "items": {"type": "string"}},
+                "totalHariIni": {"type": "number"},
+                "saldoKemarin": {"type": "number"},
+                "selisih": {"type": "number"}
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data berhasil diperbarui"
+          }
+        }
+      }
+    }
+  }
+}
